@@ -15690,6 +15690,7 @@ impl Editor {
                 project.update(cx, |project, cx| {
                     project.restart_language_servers_for_buffers(
                         multi_buffer.all_buffers().into_iter().collect(),
+                        Vec::new(),
                         cx,
                     );
                 });
@@ -15708,6 +15709,7 @@ impl Editor {
                 project.update(cx, |project, cx| {
                     project.stop_language_servers_for_buffers(
                         multi_buffer.all_buffers().into_iter().collect(),
+                        Vec::new(),
                         cx,
                     );
                     cx.emit(project::Event::RefreshInlayHints);
